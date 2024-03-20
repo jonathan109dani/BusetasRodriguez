@@ -373,7 +373,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void MenuConductorEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuConductorEliminarActionPerformed
         Eliminar_Conductor Eliminar_Conductor = new Eliminar_Conductor(this, true);
-        Eliminar_Conductor.setVisible(true); 
+        Eliminar_Conductor.setVisible(true);  
     }//GEN-LAST:event_MenuConductorEliminarActionPerformed
 
     private void MenuConductorModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuConductorModificarActionPerformed
