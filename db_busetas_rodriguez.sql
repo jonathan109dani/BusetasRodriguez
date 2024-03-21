@@ -481,3 +481,83 @@ ALTER TRIGGER "JONA"."TRG_DELETE_VEHICULO" ENABLE;
   ALTER TABLE "JONA"."TAB_VEHICULO_CONDUCTOR" ADD CONSTRAINT "TAB_VEHICULO_CONDUCTOR_PK" PRIMARY KEY ("PLACA", "CEDULA")
   USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
   TABLESPACE "USERS"  ENABLE;
+
+-- procedimientos almacenados para insertar, actualizar y eliminar registros, junto con la inserción correspondiente en las tablas de auditoría.
+
+CREATE PROCEDURE SP_INSERTAR_CLIENTE (
+    p_cedula IN VARCHAR2,
+    p_nombre IN VARCHAR2,
+    p_apellido1 IN VARCHAR2,
+    p_apellido2 IN VARCHAR2,
+    p_ubicacion IN VARCHAR2,
+    p_cantidad_clientes IN NUMBER,
+    p_usuario IN VARCHAR2
+)
+AS
+BEGIN
+    INSERT INTO TAB_CLIENTE (CEDULA, NOMBRE, APELLIDO1, APELLIDO2, UBICACION, CANTIDAD_CLIENTES)
+    VALUES (p_cedula, p_nombre, p_apellido1, p_apellido2, p_ubicacion, p_cantidad_clientes);
+    
+    INSERT INTO TAB_AUD_CLIENTE (USUARIO, ACCION)
+    VALUES (p_usuario, 'INSERT');
+    
+    COMMIT;
+END;
+
+CREATE PROCEDURE SP_INSERTAR_CONDUCTOR (
+    p_cedula IN VARCHAR2,
+    p_nombre IN VARCHAR2,
+    p_apellido1 IN VARCHAR2,
+    p_apellido2 IN VARCHAR2,
+    p_usuario IN VARCHAR2
+)
+AS
+BEGIN
+    INSERT INTO TAB_CONDUCTOR (CEDULA, NOMBRE, APELLIDO1, APELLIDO2)
+    VALUES (p_cedula, p_nombre, p_apellido1, p_apellido2);
+    
+    INSERT INTO TAB_AUD_CONDUCTOR (USUARIO, ACCION)
+    VALUES (p_usuario, 'INSERT');
+    
+    COMMIT;
+END;
+
+CREATE PROCEDURE SP_INSERTAR_ESCUELA (
+    p_id_escuela IN NUMBER,
+    p_nombre IN VARCHAR2,
+    p_ubicacion IN VARCHAR2,
+    p_usuario IN VARCHAR2
+)
+AS
+BEGIN
+    INSERT INTO TAB_ESCUELA (ID_ESCUELA, NOMBRE, UBICACION)
+    VALUES (p_id_escuela, p_nombre, p_ubicacion);
+    
+    INSERT INTO TAB_AUD_ESCUELA (USUARIO, ACCION)
+    VALUES (p_usuario, 'INSERT');
+    
+    COMMIT;
+END;
+
+CREATE PROCEDURE SP_INSERTAR_VEHICULO (
+    p_placa IN VARCHAR2,
+    p_modelo IN VARCHAR2,
+    p_marca IN VARCHAR2,
+    p_capacidad IN NUMBER,
+    p_usuario IN VARCHAR2
+)
+AS
+BEGIN
+    INSERT INTO TAB_VEHICULO (PLACA, MODELO, MARCA, CAPACIDAD)
+    VALUES (p_placa, p_modelo, p_marca, p_capacidad);
+    
+    INSERT INTO TAB_AUD_VEHICULO (USUARIO, ACCION)
+    VALUES (p_usuario, 'INSERT');
+    
+    COMMIT;
+END;
+
+EXECUTE SP_INSERTAR_CLIENTE
+EXECUTE SP_INSERTAR_CONDUCTOR
+EXECUTE SP_INSERTAR_ESCUELA
+EXECUTE SP_INSERTAR_VEHICULO
