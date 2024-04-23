@@ -4,18 +4,22 @@
  */
 package CRUD_VehiculosEmpresa;
 
+import Controladores.VehiculoController;
+import Modelos.Vehiculo;
+import javax.swing.JFrame;
+
 /**
  *
  * @author kevin
  */
 public class Crear_VehiculoEmp extends javax.swing.JDialog {
-
+    VehiculoController vehiculoController = new VehiculoController ();
     /**
      * Creates new form Crear_VehiculoEmp
      */
-    public Crear_VehiculoEmp(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public Crear_VehiculoEmp(JFrame jFrame, boolean par) {
         initComponents();
+        actualizar_lista();
     }
 
     /**
@@ -30,14 +34,16 @@ public class Crear_VehiculoEmp extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txt_Placa = new javax.swing.JTextField();
+        txtPlaca = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txt_Modelo = new javax.swing.JTextField();
+        txtModelo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txt_Marca = new javax.swing.JTextField();
-        txt_Capacidad = new javax.swing.JTextField();
+        txtMarca = new javax.swing.JTextField();
+        txtCapacidad = new javax.swing.JTextField();
         btnAgregarVehiculo = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtResultado = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -60,6 +66,10 @@ public class Crear_VehiculoEmp extends javax.swing.JDialog {
             }
         });
 
+        txtResultado.setColumns(20);
+        txtResultado.setRows(5);
+        jScrollPane1.setViewportView(txtResultado);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -75,11 +85,12 @@ public class Crear_VehiculoEmp extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAgregarVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
                     .addComponent(jLabel1)
-                    .addComponent(txt_Placa)
-                    .addComponent(txt_Modelo)
-                    .addComponent(txt_Marca)
-                    .addComponent(txt_Capacidad))
+                    .addComponent(txtPlaca)
+                    .addComponent(txtModelo)
+                    .addComponent(txtMarca)
+                    .addComponent(txtCapacidad))
                 .addContainerGap(134, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,22 +100,23 @@ public class Crear_VehiculoEmp extends javax.swing.JDialog {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txt_Placa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txt_Modelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txt_Marca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txt_Capacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(btnAgregarVehiculo)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -129,8 +141,25 @@ public class Crear_VehiculoEmp extends javax.swing.JDialog {
 
     private void btnAgregarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarVehiculoActionPerformed
         // TODO add your handling code here:
+        String placa = txtPlaca.getText();
+        String modelo = txtModelo.getText();
+        String marca = txtMarca.getText();
+        String capacidad = txtCapacidad.getText();
+        
+        Vehiculo vehiculo = new Vehiculo (placa, modelo, marca, capacidad);
+        
+        this.vehiculoController.agregarVehiculo(vehiculo);
+        
+        actualizar_lista();
+        
     }//GEN-LAST:event_btnAgregarVehiculoActionPerformed
 
+    private void actualizar_lista (){
+        txtResultado.setText("");
+        for (Vehiculo vehiculoAux:vehiculoController.obtenerTodosVehiculos()) {
+            txtResultado.append(vehiculoAux.toString());
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -181,9 +210,11 @@ public class Crear_VehiculoEmp extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txt_Capacidad;
-    private javax.swing.JTextField txt_Marca;
-    private javax.swing.JTextField txt_Modelo;
-    private javax.swing.JTextField txt_Placa;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtCapacidad;
+    private javax.swing.JTextField txtMarca;
+    private javax.swing.JTextField txtModelo;
+    private javax.swing.JTextField txtPlaca;
+    private javax.swing.JTextArea txtResultado;
     // End of variables declaration//GEN-END:variables
 }
