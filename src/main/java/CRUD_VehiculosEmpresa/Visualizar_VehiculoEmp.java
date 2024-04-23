@@ -4,17 +4,21 @@
  */
 package CRUD_VehiculosEmpresa;
 
+import Controladores.VehiculoController;
+import Modelos.Vehiculo;
+
 /**
  *
  * @author kevin
  */
 public class Visualizar_VehiculoEmp extends javax.swing.JDialog {
-
+    private VehiculoController vehiculo;
     /**
      * Creates new form Visualizar_VehiculoEmp
      */
     public Visualizar_VehiculoEmp(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.vehiculo = new VehiculoController();
         initComponents();
     }
 
@@ -30,16 +34,23 @@ public class Visualizar_VehiculoEmp extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txt_PlacaVehiculo = new javax.swing.JTextField();
+        txtPlaca = new javax.swing.JTextField();
         btn_ConsultarPlaca = new javax.swing.JButton();
+        txtResultado = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(195, 232, 236));
 
-        jLabel1.setText("Ver un Vehiculo de Empresa");
+        jLabel1.setText("Ver un Vehiculo");
 
         jLabel2.setText("Placa de Vehiculo a Consultar");
+
+        txtPlaca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPlacaActionPerformed(evt);
+            }
+        });
 
         btn_ConsultarPlaca.setText("Consultar");
         btn_ConsultarPlaca.addActionListener(new java.awt.event.ActionListener() {
@@ -58,26 +69,29 @@ public class Visualizar_VehiculoEmp extends javax.swing.JDialog {
                         .addGap(172, 172, 172)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_ConsultarPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_PlacaVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(183, 183, 183)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(182, Short.MAX_VALUE))
+                        .addGap(225, 225, 225)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(186, 186, 186)
+                        .addComponent(jLabel2)))
+                .addContainerGap(194, Short.MAX_VALUE))
+            .addComponent(txtResultado)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(103, 103, 103)
+                .addGap(99, 99, 99)
                 .addComponent(jLabel1)
-                .addGap(37, 37, 37)
+                .addGap(41, 41, 41)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(txt_PlacaVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_ConsultarPlaca)
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(txtResultado, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,7 +116,13 @@ public class Visualizar_VehiculoEmp extends javax.swing.JDialog {
 
     private void btn_ConsultarPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultarPlacaActionPerformed
         // TODO add your handling code here:
+        Vehiculo vehiculoAux = this.vehiculo.obtenerVehiculoPorPlaca(txtPlaca.getText());
+        txtResultado.setText(vehiculoAux.toString());
     }//GEN-LAST:event_btn_ConsultarPlacaActionPerformed
+
+    private void txtPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPlacaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPlacaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,6 +171,7 @@ public class Visualizar_VehiculoEmp extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txt_PlacaVehiculo;
+    private javax.swing.JTextField txtPlaca;
+    private javax.swing.JTextField txtResultado;
     // End of variables declaration//GEN-END:variables
 }

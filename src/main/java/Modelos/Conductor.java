@@ -11,62 +11,60 @@ import java.util.ArrayList;
  * @author andre
  */
 public class Conductor {
-    // Atributos
-    private String nombre;
-    private String apellido;
     private String cedula;
-    private String telefono;
-    private int numeroConductor;
+    private String nombre;
+    private String apellido1;
+    private String apellido2;
 
-    // Lista estática para almacenar todos los conductores creados
-    private static ArrayList<Conductor> conductores = new ArrayList<>();
+    public Conductor() {
+    }
 
-    // Constructor
-    public Conductor(String nombre, String apellido, String cedula, String telefono, int numeroConductor) {
-        this.nombre = nombre;
-        this.apellido = apellido;
+    public Conductor(String cedula, String nombre, String apellido1, String apellido2) {
         this.cedula = cedula;
-        this.telefono = telefono;
-        this.numeroConductor = numeroConductor;
-        // Agregar el conductor recién creado a la lista de conductores
-        conductores.add(this);
-    }
-
-    // Método para buscar un conductor por su ID
-    public static Conductor buscarPorID(int id) {
-        for (Conductor conductor : conductores) {
-            if (conductor.numeroConductor == id) {
-                return conductor;
-            }
-        }
-        return null; // Retorna null si no se encuentra el conductor con el ID dado
-    }
-
-    // Método para eliminar un conductor
-    public void eliminar() {
-        if (conductores.contains(this)) {
-            conductores.remove(this);
-            System.out.println("Conductor eliminado: " + nombre + " " + apellido);
-        } else {
-            System.out.println("El conductor no está en la lista.");
-        }
-    }
-
-    // Método para visualizar los detalles del conductor
-    public void visualizar() {
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Apellido: " + apellido);
-        System.out.println("Cédula: " + cedula);
-        System.out.println("Teléfono: " + telefono);
-        System.out.println("Número de conductor: " + numeroConductor);
-    }
-
-    // Método para editar los detalles del conductor
-    public void editar(String nombre, String apellido, String cedula, String telefono) {
         this.nombre = nombre;
-        this.apellido = apellido;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
         this.cedula = cedula;
-        this.telefono = telefono;
-        System.out.println("Conductor editado correctamente.");
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido1() {
+        return apellido1;
+    }
+
+    public void setApellido1(String apellido1) {
+        this.apellido1 = apellido1;
+    }
+
+    public String getApellido2() {
+        return apellido2;
+    }
+
+    public void setApellido2(String apellido2) {
+        this.apellido2 = apellido2;
+    }
+
+    @Override
+    public String toString() {
+        return "Conductor{" +
+                "cedula='" + cedula + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", apellido1='" + apellido1 + '\'' +
+                ", apellido2='" + apellido2 + '\'' +
+                '}';
     }
 }

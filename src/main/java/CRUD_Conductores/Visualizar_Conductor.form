@@ -57,7 +57,7 @@
                           <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="btnVerConductor" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtVerConductor" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtcedula" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel2" alignment="0" pref="181" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -65,23 +65,25 @@
                           <EmptySpace min="-2" pref="216" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="txtresultado" alignment="0" min="-2" pref="525" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="208" max="32767" attributes="0"/>
+                  <EmptySpace pref="36" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="txtVerConductor" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtcedula" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnVerConductor" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="163" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="txtresultado" pref="151" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -97,12 +99,26 @@
             <Property name="text" type="java.lang.String" value="Cedula de Conductor a Modificar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtVerConductor">
+        <Component class="javax.swing.JTextField" name="txtcedula">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="cedulatxt" noResource="true"/>
+          </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="txtcedula"/>
+          </AccessibilityProperties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtcedulaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnVerConductor">
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerConductorActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtresultado">
         </Component>
       </SubComponents>
     </Container>

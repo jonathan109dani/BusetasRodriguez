@@ -4,20 +4,25 @@
  */
 package CRUD_Conductores;
 
+import Controladores.ConductorController;
+import Modelos.Conductor;
+
 /**
  *
  * @author kevin
  */
 public class Visualizar_Conductor extends javax.swing.JDialog {
-
+    private ConductorController conductor;
+            
     /**
      * Creates new form Visualizar_Conductor
      */
     public Visualizar_Conductor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.conductor = new ConductorController (); 
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,8 +35,9 @@ public class Visualizar_Conductor extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtVerConductor = new javax.swing.JTextField();
+        txtcedula = new javax.swing.JTextField();
         btnVerConductor = new javax.swing.JButton();
+        txtresultado = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -41,7 +47,19 @@ public class Visualizar_Conductor extends javax.swing.JDialog {
 
         jLabel2.setText("Cedula de Conductor a Modificar");
 
+        txtcedula.setName("cedulatxt"); // NOI18N
+        txtcedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcedulaActionPerformed(evt);
+            }
+        });
+
         btnVerConductor.setText("Consultar");
+        btnVerConductor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerConductorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -53,26 +71,30 @@ public class Visualizar_Conductor extends javax.swing.JDialog {
                         .addGap(172, 172, 172)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnVerConductor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtVerConductor)
+                            .addComponent(txtcedula)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(216, 216, 216)
-                        .addComponent(jLabel1)))
-                .addContainerGap(208, Short.MAX_VALUE))
+                        .addComponent(jLabel1))
+                    .addComponent(txtresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(97, 97, 97)
+                .addGap(83, 83, 83)
                 .addComponent(jLabel1)
-                .addGap(43, 43, 43)
+                .addGap(57, 57, 57)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(txtVerConductor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnVerConductor)
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtresultado, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))
         );
+
+        txtcedula.getAccessibleContext().setAccessibleName("txtcedula");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,6 +115,16 @@ public class Visualizar_Conductor extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVerConductorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerConductorActionPerformed
+        // TODO add your handling code here:
+        Conductor conductorAux = this.conductor.obtenerConductorPorCedula(txtcedula.getText());
+        txtresultado.setText(conductorAux.toString());
+    }//GEN-LAST:event_btnVerConductorActionPerformed
+
+    private void txtcedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcedulaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,6 +173,7 @@ public class Visualizar_Conductor extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtVerConductor;
+    private javax.swing.JTextField txtcedula;
+    private javax.swing.JTextField txtresultado;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,84 +11,23 @@ import java.util.ArrayList;
  * @author andre
  */
 public class Cliente {
-    // Atributos
-    public static void setClientes(ArrayList<Cliente> clientes) {
-        Cliente.clientes = clientes;
-    }
-    private String nombre;
-    private String apellido;
     private String cedula;
-    private String telefono;
-    
-    // Lista estática para almacenar todos los clientes creados
-    private static ArrayList<Cliente> clientes = new ArrayList<>();
+    private String nombre;
+    private String apellido1;
+    private String apellido2;
+    private String ubicacion;
+    private int cantidadClientes;
 
-    // Constructor
-    public Cliente(String nombre, String apellido, String cedula, String telefono) {
-        this.nombre = nombre;
-        this.apellido = apellido;
+    public Cliente() {
+    }
+
+    public Cliente(String cedula, String nombre, String apellido1, String apellido2, String ubicacion, int cantidadClientes) {
         this.cedula = cedula;
-        this.telefono = telefono;
-        // Agregar el cliente recién creado a la lista de clientes
-        clientes.add(this);
-    }
-
-    // Método para crear un cliente
-    public static Cliente crear(String nombre, String apellido, String cedula, String telefono) {
-        return new Cliente(nombre, apellido, cedula, telefono);
-    }
-
-    // Método para buscar un cliente por su cédula
-    public static Cliente buscarPorCedula(String cedula) {
-        for (Cliente cliente : clientes) {
-            if (cliente.cedula.equals(cedula)) {
-                return cliente;
-            }
-        }
-        return null; // Retorna null si no se encuentra el cliente con la cédula dada
-    }
-
-    // Método para editar un cliente
-    public void editar(String nombre, String apellido, String telefono) {
         this.nombre = nombre;
-        this.apellido = apellido;
-        this.telefono = telefono;
-        System.out.println("Cliente editado correctamente.");
-    }
-
-    // Método para eliminar un cliente
-    public void eliminar() {
-        if (clientes.contains(this)) {
-            clientes.remove(this);
-            System.out.println("Cliente eliminado: " + nombre + " " + apellido);
-        } else {
-            System.out.println("El cliente no está en la lista.");
-        }
-    }
-
-    // Método para visualizar los detalles del cliente
-    public void visualizar() {
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Apellido: " + apellido);
-        System.out.println("Cédula: " + cedula);
-        System.out.println("Teléfono: " + telefono);
-    }
-    
-    
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.ubicacion = ubicacion;
+        this.cantidadClientes = cantidadClientes;
     }
 
     public String getCedula() {
@@ -99,16 +38,55 @@ public class Cliente {
         this.cedula = cedula;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public static ArrayList<Cliente> getClientes() {
-        return clientes;
+    public String getApellido1() {
+        return apellido1;
     }
 
+    public void setApellido1(String apellido1) {
+        this.apellido1 = apellido1;
+    }
+
+    public String getApellido2() {
+        return apellido2;
+    }
+
+    public void setApellido2(String apellido2) {
+        this.apellido2 = apellido2;
+    }
+
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public int getCantidadClientes() {
+        return cantidadClientes;
+    }
+
+    public void setCantidadClientes(int cantidadClientes) {
+        this.cantidadClientes = cantidadClientes;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "cedula='" + cedula + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", apellido1='" + apellido1 + '\'' +
+                ", apellido2='" + apellido2 + '\'' +
+                ", ubicacion='" + ubicacion + '\'' +
+                ", cantidadClientes=" + cantidadClientes +
+                '}';
+    }
 }

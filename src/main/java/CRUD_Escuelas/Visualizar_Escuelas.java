@@ -4,17 +4,21 @@
  */
 package CRUD_Escuelas;
 
+import Controladores.EscuelaController;
+import Modelos.Escuela;
+
 /**
  *
  * @author kevin
  */
 public class Visualizar_Escuelas extends javax.swing.JDialog {
-
+    private EscuelaController escuela;
     /**
      * Creates new form Visualizar_Escuelas
      */
     public Visualizar_Escuelas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.escuela = new EscuelaController ();
         initComponents();
     }
 
@@ -30,8 +34,9 @@ public class Visualizar_Escuelas extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txt_nombreEscuelaConsultar = new javax.swing.JTextField();
+        txtEscuelaConsultar = new javax.swing.JTextField();
         btn_ConsultarEscuela = new javax.swing.JButton();
+        txtResultadoEsc = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -40,6 +45,12 @@ public class Visualizar_Escuelas extends javax.swing.JDialog {
         jLabel1.setText("Ver una Escuela");
 
         jLabel2.setText("Nombre de Escuela a Consultar");
+
+        txtEscuelaConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEscuelaConsultarActionPerformed(evt);
+            }
+        });
 
         btn_ConsultarEscuela.setText("Consultar");
         btn_ConsultarEscuela.addActionListener(new java.awt.event.ActionListener() {
@@ -52,21 +63,22 @@ public class Visualizar_Escuelas extends javax.swing.JDialog {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(226, 226, 226))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(172, 172, 172)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_ConsultarEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_nombreEscuelaConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtEscuelaConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(183, 183, 183)
                         .addComponent(jLabel2)))
                 .addContainerGap(182, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(226, 226, 226))
+            .addComponent(txtResultadoEsc)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,10 +88,11 @@ public class Visualizar_Escuelas extends javax.swing.JDialog {
                 .addGap(29, 29, 29)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(txt_nombreEscuelaConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEscuelaConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_ConsultarEscuela)
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(txtResultadoEsc, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -99,12 +112,20 @@ public class Visualizar_Escuelas extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel2.getAccessibleContext().setAccessibleName("");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_ConsultarEscuelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConsultarEscuelaActionPerformed
         // TODO add your handling code here:
+        Escuela escuelaAux = this.escuela.obtenerEscuelaPorID(txtEscuelaConsultar.getText());
+        txtResultadoEsc.setText(escuelaAux.toString());
     }//GEN-LAST:event_btn_ConsultarEscuelaActionPerformed
+
+    private void txtEscuelaConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEscuelaConsultarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEscuelaConsultarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,6 +174,7 @@ public class Visualizar_Escuelas extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txt_nombreEscuelaConsultar;
+    private javax.swing.JTextField txtEscuelaConsultar;
+    private javax.swing.JTextField txtResultadoEsc;
     // End of variables declaration//GEN-END:variables
 }

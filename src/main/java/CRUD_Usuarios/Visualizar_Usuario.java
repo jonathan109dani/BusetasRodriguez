@@ -4,17 +4,21 @@
  */
 package CRUD_Usuarios;
 
+import Controladores.ClienteController;
+import Modelos.Cliente;
+
 /**
  *
  * @author kevin
  */
 public class Visualizar_Usuario extends javax.swing.JDialog {
-
+    private ClienteController cliente;
     /**
      * Creates new form Visualizar_Usuario
      */
     public Visualizar_Usuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.cliente = new ClienteController();
         initComponents();
     }
 
@@ -31,18 +35,24 @@ public class Visualizar_Usuario extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        btn_EliminarUsuario = new javax.swing.JButton();
+        txtCedula = new javax.swing.JTextField();
+        btnConsultarUsuario = new javax.swing.JButton();
+        txtResultado = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(195, 232, 236));
 
-        jLabel1.setText("Ver un Usuario");
+        jLabel1.setText("Ver un Cliente");
 
-        jLabel2.setText("Cedula de Usuario a Visualizar");
+        jLabel2.setText("Cedula de Cliente a Visualizar");
 
-        btn_EliminarUsuario.setText("Modificar");
+        btnConsultarUsuario.setText("Visualizar");
+        btnConsultarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarUsuarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -53,8 +63,8 @@ public class Visualizar_Usuario extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(172, 172, 172)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_EliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnConsultarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(183, 183, 183)
                         .addComponent(jLabel2))
@@ -62,6 +72,7 @@ public class Visualizar_Usuario extends javax.swing.JDialog {
                         .addGap(225, 225, 225)
                         .addComponent(jLabel1)))
                 .addContainerGap(185, Short.MAX_VALUE))
+            .addComponent(txtResultado)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -71,11 +82,14 @@ public class Visualizar_Usuario extends javax.swing.JDialog {
                 .addGap(47, 47, 47)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btn_EliminarUsuario)
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addComponent(btnConsultarUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        txtCedula.getAccessibleContext().setAccessibleName("Cedula");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -113,6 +127,12 @@ public class Visualizar_Usuario extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnConsultarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarUsuarioActionPerformed
+        // TODO add your handling code here:
+        Cliente clienteAux = this.cliente.obtenerClientePorCedula(txtCedula.getText());
+        txtResultado.setText(clienteAux.toString());
+    }//GEN-LAST:event_btnConsultarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,11 +177,12 @@ public class Visualizar_Usuario extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_EliminarUsuario;
+    private javax.swing.JButton btnConsultarUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtResultado;
     // End of variables declaration//GEN-END:variables
 }

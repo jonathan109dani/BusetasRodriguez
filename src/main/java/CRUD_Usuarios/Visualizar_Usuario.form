@@ -79,8 +79,8 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btn_EliminarUsuario" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
-                                  <Component id="jTextField1" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
+                                  <Component id="btnConsultarUsuario" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
+                                  <Component id="txtCedula" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -94,6 +94,7 @@
                       </Group>
                       <EmptySpace pref="185" max="32767" attributes="0"/>
                   </Group>
+                  <Component id="txtResultado" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -104,10 +105,11 @@
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCedula" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btn_EliminarUsuario" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="208" max="32767" attributes="0"/>
+                      <Component id="btnConsultarUsuario" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="29" max="32767" attributes="0"/>
+                      <Component id="txtResultado" min="-2" pref="179" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -115,20 +117,28 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ver un Usuario"/>
+                <Property name="text" type="java.lang.String" value="Ver un Cliente"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cedula de Usuario a Visualizar"/>
+                <Property name="text" type="java.lang.String" value="Cedula de Cliente a Visualizar"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="txtCedula">
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Cedula"/>
+              </AccessibilityProperties>
             </Component>
-            <Component class="javax.swing.JButton" name="btn_EliminarUsuario">
+            <Component class="javax.swing.JButton" name="btnConsultarUsuario">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Modificar"/>
+                <Property name="text" type="java.lang.String" value="Visualizar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultarUsuarioActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtResultado">
             </Component>
           </SubComponents>
         </Container>
