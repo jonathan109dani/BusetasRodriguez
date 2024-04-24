@@ -7,9 +7,10 @@ package CRUD_Conductores;
 import Controladores.ConductorController;
 import Modelos.Conductor;
 import com.mycompany.proyecto_lenguajes_bd.Menu;
- 
-/*  *
- * 
+
+/**
+ *
+ * @author kevin
  */
 public class Modificar_Conductor extends javax.swing.JDialog {
     ConductorController conductorController = new ConductorController ();

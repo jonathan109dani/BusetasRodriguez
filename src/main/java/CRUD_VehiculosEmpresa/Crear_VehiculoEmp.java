@@ -9,7 +9,7 @@ import Modelos.Vehiculo;
 import com.mycompany.proyecto_lenguajes_bd.Menu;
 import javax.swing.JFrame;
 
-/**   
+/**
  *
  * @author kevin
  */

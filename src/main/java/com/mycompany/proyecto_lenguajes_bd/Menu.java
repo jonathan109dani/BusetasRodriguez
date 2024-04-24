@@ -375,7 +375,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuEscuelaVisualizarActionPerformed
 
     private void menuCrearVehiculoEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCrearVehiculoEmpActionPerformed
-        this.setVisible(false);//a
+        this.setVisible(false);
         Crear_VehiculoEmp Crear_VehiculoEmp = new Crear_VehiculoEmp(this, true);
         Crear_VehiculoEmp.setVisible(true);
     }//GEN-LAST:event_menuCrearVehiculoEmpActionPerformed

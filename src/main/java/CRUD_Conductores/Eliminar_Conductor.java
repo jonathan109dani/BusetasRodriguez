@@ -130,11 +130,11 @@ public class Eliminar_Conductor extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarConductorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarConductorActionPerformed
-        //
+        // TODO add your handling code here:
         this.conductorController.eliminarConductor(txtCedula.getText());
-        actualizar_lista(); 
+        actualizar_lista();
     }//GEN-LAST:event_btnEliminarConductorActionPerformed
-  
+
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         this.setVisible(false);
         new Menu().setVisible(true);         // TODO add your handling code here:

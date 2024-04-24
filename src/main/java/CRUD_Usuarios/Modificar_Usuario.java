@@ -10,7 +10,7 @@ import Modelos.Cliente;
 import com.mycompany.proyecto_lenguajes_bd.Menu;
 
 /**
- * 
+ *
  * @author kevin
  */
 public class Modificar_Usuario extends javax.swing.JDialog {

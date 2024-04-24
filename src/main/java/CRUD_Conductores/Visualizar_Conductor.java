@@ -141,9 +141,9 @@ public class Visualizar_Conductor extends javax.swing.JDialog {
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         this.setVisible(false);
-        new Menu().setVisible(true);    
+        new Menu().setVisible(true);          // TODO add your handling code here:
     }//GEN-LAST:event_btnMenuActionPerformed
- 
+
     /**
      * @param args the command line arguments
      */

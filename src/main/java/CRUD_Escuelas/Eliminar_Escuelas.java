@@ -9,8 +9,8 @@ import Modelos.Escuela;
 import com.mycompany.proyecto_lenguajes_bd.Menu;
 import javax.swing.JFrame;
 
-/* *
- * 
+/**
+ *
  * @author kevin
  */
 public class Eliminar_Escuelas extends javax.swing.JDialog {

@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author kevi n
+ * @author kevin
  */
 public class Crear_Usuario extends javax.swing.JDialog {
     ClienteController clienteController = new ClienteController ();

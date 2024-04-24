@@ -9,9 +9,9 @@ import Modelos.Escuela;
 import com.mycompany.proyecto_lenguajes_bd.Menu;
 import javax.swing.JFrame;
 
-/* *
- *  
- * @author kevin 
+/**
+ *
+ * @author kevin
  */
 public class Crear_Escuelas extends javax.swing.JDialog {
     EscuelaController escuelaController = new EscuelaController();

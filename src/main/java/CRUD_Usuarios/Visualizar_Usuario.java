@@ -8,8 +8,8 @@ import com.mycompany.proyecto_lenguajes_bd.Menu;
 import Controladores.ClienteController;
 import Modelos.Cliente;
 
-/** 
- * 
+/**
+ *
  * @author kevin
  */
 public class Visualizar_Usuario extends javax.swing.JDialog {

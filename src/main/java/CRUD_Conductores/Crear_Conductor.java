@@ -11,10 +11,10 @@ import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
- 
+
 /**
  *
- * @author kevi n
+ * @author kevin
  */
 public class Crear_Conductor extends javax.swing.JDialog {
     ConductorController conductorController = new ConductorController();
