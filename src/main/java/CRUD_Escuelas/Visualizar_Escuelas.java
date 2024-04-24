@@ -11,7 +11,7 @@ import com.mycompany.proyecto_lenguajes_bd.Menu;
 /**
  *
  * @author kevin
- */
+ */  
 public class Visualizar_Escuelas extends javax.swing.JDialog {
     private EscuelaController escuela;
     /**

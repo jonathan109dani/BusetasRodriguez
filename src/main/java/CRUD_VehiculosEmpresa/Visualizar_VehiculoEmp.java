@@ -10,7 +10,7 @@ import com.mycompany.proyecto_lenguajes_bd.Menu;
 
 /**
  *
- * @author kevin
+ * @author kevi n
  */
 public class Visualizar_VehiculoEmp extends javax.swing.JDialog {
     private VehiculoController vehiculo;

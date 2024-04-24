@@ -10,7 +10,7 @@ import com.mycompany.proyecto_lenguajes_bd.Menu;
 import javax.swing.JFrame;
 
 /**
- *
+ * 
  * @author kevin
  */
 public class Eliminar_Usuario extends javax.swing.JDialog {

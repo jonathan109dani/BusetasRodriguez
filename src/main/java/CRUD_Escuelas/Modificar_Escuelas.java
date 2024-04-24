@@ -9,7 +9,7 @@ import Modelos.Escuela;
 import com.mycompany.proyecto_lenguajes_bd.Menu;
 
 /**
- *
+ * 
  * @author kevin
  */
 public class Modificar_Escuelas extends javax.swing.JDialog {

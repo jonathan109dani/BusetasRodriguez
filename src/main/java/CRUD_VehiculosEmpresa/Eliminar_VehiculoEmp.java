@@ -10,7 +10,7 @@ import com.mycompany.proyecto_lenguajes_bd.Menu;
 
 /**
  *
- * @author kevin
+ * @author   kevin
  */
 public class Eliminar_VehiculoEmp extends javax.swing.JDialog {
     VehiculoController vehiculoController = new VehiculoController ();
