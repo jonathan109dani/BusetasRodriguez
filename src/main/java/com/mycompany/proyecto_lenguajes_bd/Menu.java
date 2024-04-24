@@ -408,7 +408,7 @@ public class Menu extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
+ 
     /**
      * @param args the command line arguments
      */
