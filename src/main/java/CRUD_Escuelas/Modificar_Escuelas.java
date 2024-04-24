@@ -4,18 +4,21 @@
  */
 package CRUD_Escuelas;
 
+import Controladores.EscuelaController;
+import Modelos.Escuela;
+
 /**
  *
  * @author kevin
  */
 public class Modificar_Escuelas extends javax.swing.JDialog {
-
+    EscuelaController escuelaController = new EscuelaController();
     /**
      * Creates new form Modificar_Escuelas
      */
     public Modificar_Escuelas(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
         initComponents();
+        actualizar_lista();
     }
 
     /**
@@ -28,18 +31,44 @@ public class Modificar_Escuelas extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel4 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        txt_nombreEscuelaModificar = new javax.swing.JTextField();
+        ModificarEscuela = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtIDEscuela = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtUbicacion = new javax.swing.JTextField();
         btnModificarEscuela = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtResultado = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        txtIdentificador = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel4.setBackground(new java.awt.Color(195, 232, 236));
 
-        jLabel14.setText("Modificar Escuela");
+        ModificarEscuela.setText("Modificar Escuela");
 
-        jLabel15.setText("Nombre");
+        jLabel2.setText("ID Escuela");
+
+        txtIDEscuela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIDEscuelaActionPerformed(evt);
+            }
+        });
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Nombre");
+
+        jLabel4.setText("Ubicacion");
 
         btnModificarEscuela.setText("Modificar");
         btnModificarEscuela.addActionListener(new java.awt.event.ActionListener() {
@@ -48,39 +77,72 @@ public class Modificar_Escuelas extends javax.swing.JDialog {
             }
         });
 
+        txtResultado.setColumns(20);
+        txtResultado.setRows(5);
+        jScrollPane1.setViewportView(txtResultado);
+
+        jLabel1.setText("Identificador");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnModificarEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(160, 160, 160))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
+                .addGap(84, 84, 84)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_nombreEscuelaModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(110, Short.MAX_VALUE))
+                        .addComponent(txtIDEscuela)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnBuscar))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtIdentificador, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUbicacion, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(btnModificarEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 58, Short.MAX_VALUE)))
+                        .addGap(99, 99, 99)))
+                .addGap(78, 78, 78))
+            .addComponent(jScrollPane1)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(195, 195, 195)
+                .addComponent(ModificarEscuela)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(jLabel14)
-                .addGap(34, 34, 34)
+                .addGap(16, 16, 16)
+                .addComponent(ModificarEscuela)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(txt_nombreEscuelaModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIDEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtIdentificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(btnModificarEscuela)
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addGap(11, 11, 11)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,10 +164,41 @@ public class Modificar_Escuelas extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtIDEscuelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDEscuelaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIDEscuelaActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        Escuela escuelaAux = this.escuelaController.obtenerEscuelaPorID(txtIDEscuela.getText());
+        txtIdentificador.setText(escuelaAux.getID_Escuela());
+        txtNombre.setText(escuelaAux.getNombre());
+        txtUbicacion.setText(escuelaAux.getUbicacion());
+        
+
+        btnBuscar.setEnabled(true);
+
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
     private void btnModificarEscuelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarEscuelaActionPerformed
         // TODO add your handling code here:
+        String cedula = txtIdentificador.getText();
+        String nombre = txtNombre.getText();
+        String ubicacion = txtUbicacion.getText();
+
+        Escuela escuela = new Escuela (cedula, nombre, ubicacion);
+
+        this.escuelaController.actualizarEscuela(escuela);
+
+        actualizar_lista();
     }//GEN-LAST:event_btnModificarEscuelaActionPerformed
 
+    private void actualizar_lista(){
+        txtResultado.setText("");
+        for(Escuela escuelaAux:escuelaController.obtenerTodasEscuelas()){
+            txtResultado.append(escuelaAux.toString());
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -149,10 +242,19 @@ public class Modificar_Escuelas extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ModificarEscuela;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnModificarEscuela;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField txt_nombreEscuelaModificar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtIDEscuela;
+    private javax.swing.JTextField txtIdentificador;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextArea txtResultado;
+    private javax.swing.JTextField txtUbicacion;
     // End of variables declaration//GEN-END:variables
 }

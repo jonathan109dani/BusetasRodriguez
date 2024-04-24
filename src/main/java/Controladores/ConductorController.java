@@ -61,7 +61,7 @@ public class ConductorController {
 
             ResultSet resultSet = conexion.getResultado();
             while (resultSet.next()) {
-                Conductor conductor = new Conductor();
+                Conductor conductor = new Conductor ();
                 conductor.setCedula(resultSet.getString("CEDULA"));
                 conductor.setNombre(resultSet.getString("NOMBRE"));
                 conductor.setApellido1(resultSet.getString("APELLIDO1"));
@@ -115,6 +115,7 @@ public class ConductorController {
             statement.setString(4, conductor.getCedula());
 
             statement.executeUpdate();
+            
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

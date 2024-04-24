@@ -4,18 +4,22 @@
  */
 package CRUD_Escuelas;
 
+import Controladores.EscuelaController;
+import Modelos.Escuela;
+import javax.swing.JFrame;
+
 /**
  *
  * @author kevin
  */
 public class Crear_Escuelas extends javax.swing.JDialog {
-
+    EscuelaController escuelaController = new EscuelaController();
     /**
      * Creates new form Crear_Escuelas
      */
-    public Crear_Escuelas(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public Crear_Escuelas(JFrame jFrame, boolean par) {
         initComponents();
+        actualizar_lista();
     }
 
     /**
@@ -30,10 +34,14 @@ public class Crear_Escuelas extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        txt_nombreEscuela = new javax.swing.JTextField();
+        txtNombreEscuela = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        txt_UbiEscuela = new javax.swing.JTextField();
+        txtUbiEscuela = new javax.swing.JTextField();
         btnAgregarEscuela = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtResultado = new javax.swing.JTextArea();
+        jLabel14 = new javax.swing.JLabel();
+        txtIDEscuela = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -52,46 +60,59 @@ public class Crear_Escuelas extends javax.swing.JDialog {
             }
         });
 
+        txtResultado.setColumns(20);
+        txtResultado.setRows(5);
+        jScrollPane1.setViewportView(txtResultado);
+
+        jLabel14.setText("ID_Escuela");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(220, 220, 220)
-                .addComponent(jLabel11)
-                .addContainerGap(199, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(138, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel14)
                             .addComponent(jLabel12)
                             .addComponent(jLabel13))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_nombreEscuela, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                            .addComponent(txt_UbiEscuela))
-                        .addGap(98, 98, 98))
+                            .addComponent(txtIDEscuela, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                            .addComponent(txtUbiEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombreEscuela))
+                        .addGap(117, 117, 117))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(btnAgregarEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(166, 166, 166))))
+                        .addGap(159, 159, 159))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(205, 205, 205))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(52, 52, 52)
                 .addComponent(jLabel11)
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(txt_nombreEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel14)
+                    .addComponent(txtIDEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(txtNombreEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
-                    .addComponent(txt_UbiEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                    .addComponent(txtUbiEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
                 .addComponent(btnAgregarEscuela)
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -116,6 +137,17 @@ public class Crear_Escuelas extends javax.swing.JDialog {
 
     private void btnAgregarEscuelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEscuelaActionPerformed
         // TODO add your handling code here:
+        String ID_Escuela = txtIDEscuela.getText();
+        String nombre = txtNombreEscuela.getText();
+        String ubicacion = txtUbiEscuela.getText();
+        
+        
+        Escuela escuela = new Escuela(ID_Escuela, nombre, ubicacion);
+        
+        this.escuelaController.agregarEscuela(escuela);
+        
+        actualizar_lista();
+        
     }//GEN-LAST:event_btnAgregarEscuelaActionPerformed
 
     /**
@@ -160,35 +192,24 @@ public class Crear_Escuelas extends javax.swing.JDialog {
         });
     }
 
+    private void actualizar_lista(){
+        txtResultado.setText("");
+        for(Escuela escuelaAux:escuelaController.obtenerTodasEscuelas()){
+            txtResultado.append(escuelaAux.toString());
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarEscuela;
-    private javax.swing.JButton btnAgregarVehiculo;
-    private javax.swing.JButton btnAgregarVehiculo1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField txt_Capacidad;
-    private javax.swing.JTextField txt_Capacidad1;
-    private javax.swing.JTextField txt_Marca;
-    private javax.swing.JTextField txt_Marca1;
-    private javax.swing.JTextField txt_Modelo;
-    private javax.swing.JTextField txt_Modelo1;
-    private javax.swing.JTextField txt_Placa;
-    private javax.swing.JTextField txt_Placa1;
-    private javax.swing.JTextField txt_UbiEscuela;
-    private javax.swing.JTextField txt_nombreEscuela;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtIDEscuela;
+    private javax.swing.JTextField txtNombreEscuela;
+    private javax.swing.JTextArea txtResultado;
+    private javax.swing.JTextField txtUbiEscuela;
     // End of variables declaration//GEN-END:variables
 }

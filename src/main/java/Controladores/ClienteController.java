@@ -36,7 +36,7 @@ public class ClienteController {
     public void agregarCliente(Cliente cliente) {
         try {
             conexion.setConexion();
-            String sql = "INSERT INTO TAB_CLIENTE (CEDULA, NOMBRE, APELLIDO1, APELLIDO2, UBICACION, CANTIDAD_CLIENTES) VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO TAB_CLIENTE (CEDULA, NOMBRE, APELLIDO1, APELLIDO2, UBICACION) VALUES (?, ?, ?, ?, ?)";
             conexion.setConsulta(sql);
 
             PreparedStatement statement = conexion.getConsulta();
@@ -45,7 +45,7 @@ public class ClienteController {
             statement.setString(3, cliente.getApellido1());
             statement.setString(4, cliente.getApellido2());
             statement.setString(5, cliente.getUbicacion());
-            statement.setInt(6, cliente.getCantidadClientes());
+            
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -70,7 +70,6 @@ public class ClienteController {
                 cliente.setApellido1(resultSet.getString("APELLIDO1"));
                 cliente.setApellido2(resultSet.getString("APELLIDO2"));
                 cliente.setUbicacion(resultSet.getString("UBICACION"));
-                cliente.setCantidadClientes(resultSet.getInt("CANTIDAD_CLIENTES"));
                 clientes.add(cliente);
             }
         } catch (SQLException e) {
@@ -99,7 +98,7 @@ public class ClienteController {
                 cliente.setApellido1(resultSet.getString("APELLIDO1"));
                 cliente.setApellido2(resultSet.getString("APELLIDO2"));
                 cliente.setUbicacion(resultSet.getString("UBICACION"));
-                cliente.setCantidadClientes(resultSet.getInt("CANTIDAD_CLIENTES"));
+                
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -112,7 +111,7 @@ public class ClienteController {
     public void actualizarCliente(Cliente cliente) {
         try {
             conexion.setConexion();
-            String sql = "UPDATE TAB_CLIENTE SET NOMBRE = ?, APELLIDO1 = ?, APELLIDO2 = ?, UBICACION = ?, CANTIDAD_CLIENTES = ? WHERE CEDULA = ?";
+            String sql = "UPDATE TAB_CLIENTE SET NOMBRE = ?, APELLIDO1 = ?, APELLIDO2 = ?, UBICACION = ? WHERE CEDULA = ?";
             conexion.setConsulta(sql);
 
             PreparedStatement statement = conexion.getConsulta();
@@ -120,8 +119,8 @@ public class ClienteController {
             statement.setString(2, cliente.getApellido1());
             statement.setString(3, cliente.getApellido2());
             statement.setString(4, cliente.getUbicacion());
-            statement.setInt(5, cliente.getCantidadClientes());
-            statement.setString(6, cliente.getCedula());
+            statement.setString(5, cliente.getCedula());
+            
 
             statement.executeUpdate();
         } catch (SQLException e) {

@@ -14,14 +14,14 @@ public class Vehiculo {
     private String placa;
     private String modelo;
     private String marca;
-    private int capacidad;
+    private String capacidad; //String
 
     // Constructor vacío
     public Vehiculo() {
     }
 
     // Constructor con todos los atributos
-    public Vehiculo(String placa, String modelo, String marca, int capacidad) {
+    public Vehiculo(String placa, String modelo, String marca, String capacidad) {
         this.placa = placa;
         this.modelo = modelo;
         this.marca = marca;
@@ -53,22 +53,22 @@ public class Vehiculo {
         this.marca = marca;
     }
 
-    public int getCapacidad() {
+    public String getCapacidad() {
         return capacidad;
     }
 
-    public void setCapacidad(int capacidad) {
+    public void setCapacidad(String capacidad) {
         this.capacidad = capacidad;
     }
 
     // Método toString para representación textual del objeto
     @Override
     public String toString() {
-        return "Vehiculo{" +
-                "placa='" + placa + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", marca='" + marca + '\'' +
-                ", capacidad=" + capacidad +
-                '}';
+        return "Vehiculo: " + "\n" +
+                "Placa= " + placa + "\n" +
+                "Modelo='" + modelo + "\n" +
+                "Marca='" + marca + "\n" +
+                "Capacidad=" + capacidad + "\n" + 
+                "**********************************************\n";
     }
 }

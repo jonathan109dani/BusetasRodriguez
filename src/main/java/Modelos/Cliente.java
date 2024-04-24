@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author andre
+ * @author andrey Azofeifa
  */
 public class Cliente {
     private String cedula;

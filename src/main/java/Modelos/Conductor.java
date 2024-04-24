@@ -11,6 +11,8 @@ import java.util.ArrayList;
  * @author andre
  */
 public class Conductor {
+
+    
     private String cedula;
     private String nombre;
     private String apellido1;
@@ -60,11 +62,11 @@ public class Conductor {
 
     @Override
     public String toString() {
-        return "Conductor{" +
-                "cedula='" + cedula + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", apellido1='" + apellido1 + '\'' +
-                ", apellido2='" + apellido2 + '\'' +
-                '}';
+        return "Conductor " +
+                "cedula= " + cedula + "\n" +
+                "nombre= " + nombre + "\n" +
+                "apellido1= " + apellido1 + "\n" +
+                "apellido2= " + apellido2 + "\n" +
+                "\n******************************************************\n";
     }
 }

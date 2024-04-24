@@ -42,7 +42,7 @@ public class VehiculoController {
             statement.setString(1, vehiculo.getPlaca());
             statement.setString(2, vehiculo.getModelo());
             statement.setString(3, vehiculo.getMarca());
-            statement.setInt(4, vehiculo.getCapacidad());
+            statement.setString(4, vehiculo.getCapacidad());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -65,7 +65,7 @@ public class VehiculoController {
                 vehiculo.setPlaca(resultSet.getString("PLACA"));
                 vehiculo.setModelo(resultSet.getString("MODELO"));
                 vehiculo.setMarca(resultSet.getString("MARCA"));
-                vehiculo.setCapacidad(resultSet.getInt("CAPACIDAD"));
+                vehiculo.setCapacidad(resultSet.getString("CAPACIDAD"));
                 vehiculos.add(vehiculo);
             }
         } catch (SQLException e) {
@@ -92,7 +92,7 @@ public class VehiculoController {
                 vehiculo.setPlaca(resultSet.getString("PLACA"));
                 vehiculo.setModelo(resultSet.getString("MODELO"));
                 vehiculo.setMarca(resultSet.getString("MARCA"));
-                vehiculo.setCapacidad(resultSet.getInt("CAPACIDAD"));
+                vehiculo.setCapacidad(resultSet.getString("CAPACIDAD"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -111,7 +111,7 @@ public class VehiculoController {
             PreparedStatement statement = conexion.getConsulta();
             statement.setString(1, vehiculo.getModelo());
             statement.setString(2, vehiculo.getMarca());
-            statement.setInt(3, vehiculo.getCapacidad());
+            statement.setString(3, vehiculo.getCapacidad());
             statement.setString(4, vehiculo.getPlaca());
 
             statement.executeUpdate();

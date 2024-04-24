@@ -4,18 +4,22 @@
  */
 package CRUD_Escuelas;
 
+import Controladores.EscuelaController;
+import Modelos.Escuela;
+import javax.swing.JFrame;
+
 /**
  *
  * @author kevin
  */
 public class Eliminar_Escuelas extends javax.swing.JDialog {
-
+    EscuelaController escuelaController = new EscuelaController();
     /**
      * Creates new form Eliminar_Escuelas
      */
-    public Eliminar_Escuelas(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public Eliminar_Escuelas(JFrame jFrame, boolean par) {
         initComponents();
+        actualizar_lista();
     }
 
     /**
@@ -30,8 +34,10 @@ public class Eliminar_Escuelas extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        txt_nombreEscuelaEliminar = new javax.swing.JTextField();
+        txtEliminarID = new javax.swing.JTextField();
         btnEliminarEscuela = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtResultado = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -39,7 +45,7 @@ public class Eliminar_Escuelas extends javax.swing.JDialog {
 
         jLabel14.setText("Eliminar Escuela");
 
-        jLabel15.setText("Nombre");
+        jLabel15.setText("Id de la Escuela");
 
         btnEliminarEscuela.setText("Eliminar");
         btnEliminarEscuela.addActionListener(new java.awt.event.ActionListener() {
@@ -52,36 +58,38 @@ public class Eliminar_Escuelas extends javax.swing.JDialog {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnEliminarEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(160, 160, 160))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
+                .addContainerGap(158, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_nombreEscuelaEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(110, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(txtEliminarID, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(93, 93, 93))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(btnEliminarEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(159, 159, 159))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addGap(212, 212, 212))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(102, 102, 102)
+                .addGap(82, 82, 82)
                 .addComponent(jLabel14)
-                .addGap(34, 34, 34)
+                .addGap(54, 54, 54)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(txt_nombreEscuelaEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                    .addComponent(txtEliminarID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
                 .addComponent(btnEliminarEscuela)
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
+
+        txtResultado.setColumns(20);
+        txtResultado.setRows(5);
+        jScrollPane1.setViewportView(txtResultado);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,7 +97,9 @@ public class Eliminar_Escuelas extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -97,7 +107,8 @@ public class Eliminar_Escuelas extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -105,8 +116,19 @@ public class Eliminar_Escuelas extends javax.swing.JDialog {
 
     private void btnEliminarEscuelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEscuelaActionPerformed
         // TODO add your handling code here:
+        
+        this.escuelaController.eliminarEscuela(Integer.parseInt(txtEliminarID.getText()));
+        actualizar_lista();
+        
     }//GEN-LAST:event_btnEliminarEscuelaActionPerformed
 
+    private void actualizar_lista(){
+        txtResultado.setText("");
+        for(Escuela escuelaAux:escuelaController.obtenerTodasEscuelas()){
+            txtResultado.append(escuelaAux.toString());
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -150,17 +172,12 @@ public class Eliminar_Escuelas extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarEscuela;
     private javax.swing.JButton btnEliminarEscuela;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField txt_UbiEscuela;
-    private javax.swing.JTextField txt_nombreEscuela;
-    private javax.swing.JTextField txt_nombreEscuelaEliminar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtEliminarID;
+    private javax.swing.JTextArea txtResultado;
     // End of variables declaration//GEN-END:variables
 }

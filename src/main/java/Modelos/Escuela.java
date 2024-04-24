@@ -56,10 +56,10 @@ public class Escuela {
     // Método toString para representar la información de la escuela
     @Override
     public String toString() {
-        return "Escuela{" +
-                "ID_Escuela=" + ID_Escuela +
-                ", nombre='" + nombre + '\'' +
-                ", ubicacion='" + ubicacion + '\'' +
-                '}';
+        return "Escuela \n" +
+                "ID_Escuela= " + ID_Escuela + "\n" +
+                "Nombre= " + nombre + "\n" +
+                "Ubicacion= " + ubicacion + "\n" +
+                "**************************************************\n";
     }
 }
