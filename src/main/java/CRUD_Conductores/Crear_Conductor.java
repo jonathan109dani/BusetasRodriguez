@@ -6,6 +6,7 @@ package CRUD_Conductores;
 
 import Controladores.ConductorController;
 import Modelos.Conductor;
+import com.mycompany.proyecto_lenguajes_bd.Menu;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,6 +49,8 @@ public class Crear_Conductor extends javax.swing.JDialog {
         btnCrearConductor = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextArea();
+        Limpiar = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -75,7 +78,7 @@ public class Crear_Conductor extends javax.swing.JDialog {
             }
         });
 
-        btnCrearConductor.setText("Agregar Conductor");
+        btnCrearConductor.setText("Agregar");
         btnCrearConductor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearConductorActionPerformed(evt);
@@ -85,6 +88,20 @@ public class Crear_Conductor extends javax.swing.JDialog {
         txtResultado.setColumns(20);
         txtResultado.setRows(5);
         jScrollPane2.setViewportView(txtResultado);
+
+        Limpiar.setText("Limpiar");
+        Limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimpiarActionPerformed(evt);
+            }
+        });
+
+        btnMenu.setText("Menu");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -99,15 +116,20 @@ public class Crear_Conductor extends javax.swing.JDialog {
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCrearConductor, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
                     .addComponent(txtInsertNombre)
                     .addComponent(txtInsertApellido1)
                     .addComponent(txtInsertApellido2)
                     .addComponent(txtInsertCedula, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(29, 29, 29)))
-                .addContainerGap(134, Short.MAX_VALUE))
+                        .addGap(29, 29, 29))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnCrearConductor, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Limpiar)))
+                .addGap(18, 18, 18)
+                .addComponent(btnMenu)
+                .addContainerGap(41, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2))
@@ -134,7 +156,10 @@ public class Crear_Conductor extends javax.swing.JDialog {
                     .addComponent(jLabel7)
                     .addComponent(txtInsertCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnCrearConductor)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCrearConductor)
+                    .addComponent(Limpiar)
+                    .addComponent(btnMenu))
                 .addGap(50, 50, 50)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                 .addContainerGap())
@@ -147,7 +172,7 @@ public class Crear_Conductor extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addContainerGap(243, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,13 +206,27 @@ public class Crear_Conductor extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtInsertNombreActionPerformed
 
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        this.setVisible(false);
+        new Menu().setVisible(true);                // TODO add your handling code here:
+    }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
+        limpiar_Interfaz();        // TODO add your handling code here:
+    }//GEN-LAST:event_LimpiarActionPerformed
+
     private void actualizar_lista(){
         txtResultado.setText("");
         for(Conductor conductorAux:conductorController.obtenerTodosConductores()){
             txtResultado.append(conductorAux.toString());
         }
     }
-        
+    private void limpiar_Interfaz(){
+    txtInsertNombre.setText("");
+    txtInsertApellido1.setText("");
+    txtInsertApellido2.setText("");
+    txtInsertCedula.setText("");
+    }
         
     /**
      * @param args the command line arguments
@@ -233,7 +272,9 @@ public class Crear_Conductor extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Limpiar;
     private javax.swing.JButton btnCrearConductor;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -6,6 +6,7 @@ package CRUD_Usuarios;
 
 import Controladores.ClienteController;
 import Modelos.Cliente;
+import com.mycompany.proyecto_lenguajes_bd.Menu;
 import javax.swing.JFrame;
 
 /**
@@ -19,6 +20,7 @@ public class Crear_Usuario extends javax.swing.JDialog {
      */
     public Crear_Usuario(JFrame jFrame, boolean par) {
         initComponents();
+        this.setLocationRelativeTo(null);//Centrar
         actualizar_lista();
     }
 
@@ -48,6 +50,8 @@ public class Crear_Usuario extends javax.swing.JDialog {
         btnCrearUsuario = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextArea();
+        btnLimpiar = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
 
@@ -86,6 +90,20 @@ public class Crear_Usuario extends javax.swing.JDialog {
         txtResultado.setRows(5);
         jScrollPane2.setViewportView(txtResultado);
 
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
+        btnMenu.setText("Menu");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -102,20 +120,25 @@ public class Crear_Usuario extends javax.swing.JDialog {
                             .addComponent(jLabel3)
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNombre)
-                            .addComponent(txtApellido1)
-                            .addComponent(txtApellido2)
-                            .addComponent(txtUbicacion)
-                            .addComponent(txtCantidadClientes)
-                            .addComponent(txtCedula, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtNombre)
+                                .addComponent(txtApellido1)
+                                .addComponent(txtApellido2)
+                                .addComponent(txtUbicacion)
+                                .addComponent(txtCantidadClientes)
+                                .addComponent(txtCedula, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(35, 35, 35)
+                                .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(btnLimpiar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                                .addComponent(btnMenu))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(254, 254, 254)
                         .addComponent(jLabel1)))
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
             .addComponent(jScrollPane2)
         );
         jPanel1Layout.setVerticalGroup(
@@ -148,7 +171,10 @@ public class Crear_Usuario extends javax.swing.JDialog {
                     .addComponent(jLabel6)
                     .addComponent(txtCantidadClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnCrearUsuario)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCrearUsuario)
+                    .addComponent(btnLimpiar)
+                    .addComponent(btnMenu))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
         );
@@ -202,11 +228,28 @@ public class Crear_Usuario extends javax.swing.JDialog {
         
     }//GEN-LAST:event_btnCrearUsuarioActionPerformed
 
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        this.setVisible(false);
+        new Menu().setVisible(true);
+    }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        limpiar_Interfaz();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
     private void actualizar_lista (){
         txtResultado.setText("");
         for(Cliente clienteAux:clienteController.obtenerTodosClientes()){
             txtResultado.append(clienteAux.toString());
         }
+    }
+    private void limpiar_Interfaz(){
+    txtCedula.setText("");
+    txtNombre.setText("");
+    txtApellido1.setText("");
+    txtApellido2.setText("");
+    txtCantidadClientes.setText("");
+    txtUbicacion.setText("");
     }
     /**
      * @param args the command line arguments
@@ -252,6 +295,8 @@ public class Crear_Usuario extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearUsuario;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

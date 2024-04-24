@@ -6,6 +6,7 @@ package CRUD_Escuelas;
 
 import Controladores.EscuelaController;
 import Modelos.Escuela;
+import com.mycompany.proyecto_lenguajes_bd.Menu;
 import javax.swing.JFrame;
 
 /**
@@ -36,6 +37,7 @@ public class Eliminar_Escuelas extends javax.swing.JDialog {
         jLabel15 = new javax.swing.JLabel();
         txtEliminarID = new javax.swing.JTextField();
         btnEliminarEscuela = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextArea();
 
@@ -54,6 +56,13 @@ public class Eliminar_Escuelas extends javax.swing.JDialog {
             }
         });
 
+        btnMenu.setText("Menu");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -67,8 +76,10 @@ public class Eliminar_Escuelas extends javax.swing.JDialog {
                         .addComponent(txtEliminarID, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(93, 93, 93))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(btnEliminarEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(159, 159, 159))
+                        .addComponent(btnEliminarEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(81, 81, 81)
+                        .addComponent(btnMenu)
+                        .addGap(58, 58, 58))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addGap(212, 212, 212))))
@@ -83,7 +94,9 @@ public class Eliminar_Escuelas extends javax.swing.JDialog {
                     .addComponent(jLabel15)
                     .addComponent(txtEliminarID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
-                .addComponent(btnEliminarEscuela)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEliminarEscuela)
+                    .addComponent(btnMenu))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
@@ -121,6 +134,11 @@ public class Eliminar_Escuelas extends javax.swing.JDialog {
         actualizar_lista();
         
     }//GEN-LAST:event_btnEliminarEscuelaActionPerformed
+
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        this.setVisible(false);
+        new Menu().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMenuActionPerformed
 
     private void actualizar_lista(){
         txtResultado.setText("");
@@ -173,6 +191,7 @@ public class Eliminar_Escuelas extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminarEscuela;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JPanel jPanel4;

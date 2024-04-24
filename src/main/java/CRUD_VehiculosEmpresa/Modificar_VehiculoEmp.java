@@ -6,6 +6,7 @@ package CRUD_VehiculosEmpresa;
 
 import Controladores.VehiculoController;
 import Modelos.Vehiculo;
+import com.mycompany.proyecto_lenguajes_bd.Menu;
 
 /**
  *
@@ -46,6 +47,8 @@ public class Modificar_VehiculoEmp extends javax.swing.JDialog {
         txtResultado = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
         txtMarca = new javax.swing.JTextField();
+        btnLimpiar = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -87,17 +90,24 @@ public class Modificar_VehiculoEmp extends javax.swing.JDialog {
 
         jLabel5.setText("Marca");
 
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
+        btnMenu.setText("Menu");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(208, 208, 208)
-                        .addComponent(btnModificarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(104, 104, 104)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,7 +121,7 @@ public class Modificar_VehiculoEmp extends javax.swing.JDialog {
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(txtIDVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel3)
                                         .addComponent(jLabel1)
@@ -119,17 +129,29 @@ public class Modificar_VehiculoEmp extends javax.swing.JDialog {
                                     .addGap(46, 46, 46)
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(btnModificarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnLimpiar))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
                                             .addComponent(txtPlaca)
                                             .addGap(1, 1, 1))
                                         .addComponent(txtModelo)
                                         .addComponent(txtCapacidad)
                                         .addComponent(txtMarca)))))
-                        .addGap(22, 22, 22)
-                        .addComponent(btnBuscar)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(btnBuscar))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(btnMenu)))
                         .addGap(69, 69, 69))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +183,10 @@ public class Modificar_VehiculoEmp extends javax.swing.JDialog {
                     .addComponent(jLabel4)
                     .addComponent(txtCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
-                .addComponent(btnModificarVehiculo)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnModificarVehiculo)
+                    .addComponent(btnLimpiar)
+                    .addComponent(btnMenu))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
         );
@@ -217,13 +242,28 @@ public class Modificar_VehiculoEmp extends javax.swing.JDialog {
         actualizar_lista();
     }//GEN-LAST:event_btnModificarVehiculoActionPerformed
 
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        this.setVisible(false);
+        new Menu().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        limpiar_Interfaz();// TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
     private void actualizar_lista (){
         txtResultado.setText("");
         for (Vehiculo vehiculoAux:vehiculoController.obtenerTodosVehiculos()) {
             txtResultado.append(vehiculoAux.toString());
         }
     }
-    
+    private void limpiar_Interfaz(){
+    txtIDVehiculo.setText("");
+    txtPlaca.setText("");
+    txtModelo.setText("");
+    txtMarca.setText("");
+    txtCapacidad.setText("");
+    }
     /**
      * @param args the command line arguments
      */
@@ -269,6 +309,8 @@ public class Modificar_VehiculoEmp extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ModificarEscuela;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnModificarVehiculo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
