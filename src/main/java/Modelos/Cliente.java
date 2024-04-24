@@ -16,18 +16,17 @@ public class Cliente {
     private String apellido1;
     private String apellido2;
     private String ubicacion;
-    private int cantidadClientes;
+    
 
     public Cliente() {
     }
 
-    public Cliente(String cedula, String nombre, String apellido1, String apellido2, String ubicacion, int cantidadClientes) {
+    public Cliente(String cedula, String nombre, String apellido1, String apellido2, String ubicacion) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
         this.ubicacion = ubicacion;
-        this.cantidadClientes = cantidadClientes;
     }
 
     public String getCedula() {
@@ -70,23 +69,15 @@ public class Cliente {
         this.ubicacion = ubicacion;
     }
 
-    public int getCantidadClientes() {
-        return cantidadClientes;
-    }
-
-    public void setCantidadClientes(int cantidadClientes) {
-        this.cantidadClientes = cantidadClientes;
-    }
 
     @Override
     public String toString() {
-        return "Cliente{" +
-                "cedula='" + cedula + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", apellido1='" + apellido1 + '\'' +
-                ", apellido2='" + apellido2 + '\'' +
-                ", ubicacion='" + ubicacion + '\'' +
-                ", cantidadClientes=" + cantidadClientes +
-                '}';
+        return "Cliente: " + "\n" +
+                "Cedula= " + cedula + "\n" +
+                "Nombre= " + nombre + "\n" +
+                "Apellido1= " + apellido1 + "\n" +
+                "Apellido2= " + apellido2 + "\n" +
+                "Ubicacion= " + ubicacion + "\n" +
+                "\n*****************************************************\n";
     }
 }
