@@ -4,6 +4,7 @@
  */
 package com.mycompany.proyecto_lenguajes_bd;
 
+import ConexionBD.Conexion;
 import CRUD_Conductores.Crear_Conductor;
 import CRUD_Conductores.Eliminar_Conductor;
 import CRUD_Conductores.Modificar_Conductor;
@@ -65,9 +66,8 @@ public class Menu extends javax.swing.JFrame {
         MenuConductorEliminar = new javax.swing.JMenuItem();
         MenuConductorModificar = new javax.swing.JMenuItem();
         MenuConductorVisualizar = new javax.swing.JMenuItem();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
-        jMenu9 = new javax.swing.JMenu();
+        btnSalir = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -108,7 +108,7 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(244, 244, 244)
                 .addComponent(jLabel1)
-                .addContainerGap(343, Short.MAX_VALUE))
+                .addContainerGap(331, Short.MAX_VALUE))
         );
 
         jMenu3.setText("Usuarios");
@@ -265,14 +265,17 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu6);
 
-        jMenu7.setText("Horarios");
-        jMenuBar1.add(jMenu7);
+        btnSalir.setText("Salir");
 
-        jMenu8.setText("Fechas de Recogida");
-        jMenuBar1.add(jMenu8);
+        jMenuItem1.setText("Salir");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        btnSalir.add(jMenuItem1);
 
-        jMenu9.setText("Rutas");
-        jMenuBar1.add(jMenu9);
+        jMenuBar1.add(btnSalir);
 
         setJMenuBar(jMenuBar1);
 
@@ -298,16 +301,19 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MenuUsuario_CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuUsuario_CrearActionPerformed
+        this.setVisible(false);
         Crear_Usuario Crear_Usuario = new Crear_Usuario(this, true);
         Crear_Usuario.setVisible(true);
     }//GEN-LAST:event_MenuUsuario_CrearActionPerformed
 
     private void MenuUsuarioEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuUsuarioEliminarActionPerformed
+        this.setVisible(false);
         Eliminar_Usuario Eliminar_Usuario = new Eliminar_Usuario(this, true);
         Eliminar_Usuario.setVisible(true);
     }//GEN-LAST:event_MenuUsuarioEliminarActionPerformed
 
     private void MenuVehiculoEmpresaModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuVehiculoEmpresaModificarActionPerformed
+        this.setVisible(false);
         Modificar_VehiculoEmp Modificar_VehiculoEmp = new Modificar_VehiculoEmp(this, true);
         Modificar_VehiculoEmp.setVisible(true);
     }//GEN-LAST:event_MenuVehiculoEmpresaModificarActionPerformed
@@ -322,6 +328,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu3ActionPerformed
 
     private void MenuUsuarioVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuUsuarioVisualizarActionPerformed
+        this.setVisible(false);
         Visualizar_Usuario Visualizar_Usuario = new Visualizar_Usuario(this, true);
         Visualizar_Usuario.setVisible(true);
     }//GEN-LAST:event_MenuUsuarioVisualizarActionPerformed
@@ -332,60 +339,76 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuVehiculoEmpresaCrearActionPerformed
 
     private void MenuVehiculoEmpresaEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuVehiculoEmpresaEliminarActionPerformed
+        this.setVisible(false);
         Eliminar_VehiculoEmp Eliminar_VehiculoEmp = new Eliminar_VehiculoEmp(this, true);
         Eliminar_VehiculoEmp.setVisible(true);
     }//GEN-LAST:event_MenuVehiculoEmpresaEliminarActionPerformed
 
     private void MenuVehiculoEmpresaVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuVehiculoEmpresaVisualizarActionPerformed
+        this.setVisible(false);
         Visualizar_VehiculoEmp Visualizar_VehiculoEmp = new Visualizar_VehiculoEmp(this, true);
         Visualizar_VehiculoEmp.setVisible(true);
     }//GEN-LAST:event_MenuVehiculoEmpresaVisualizarActionPerformed
 
     private void MenuEscuelaCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuEscuelaCrearActionPerformed
+        this.setVisible(false);
         Crear_Escuelas Crear_Escuelas = new Crear_Escuelas(this, true);
         Crear_Escuelas.setVisible(true);
     }//GEN-LAST:event_MenuEscuelaCrearActionPerformed
 
     private void MenuEscuelaModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuEscuelaModificarActionPerformed
+        this.setVisible(false);
         Modificar_Escuelas Modificar_Escuelas = new Modificar_Escuelas(this, true);
         Modificar_Escuelas.setVisible(true);
     }//GEN-LAST:event_MenuEscuelaModificarActionPerformed
 
     private void MenuEscuelaEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuEscuelaEliminarActionPerformed
+        this.setVisible(false);
         Eliminar_Escuelas Eliminar_Escuelas = new Eliminar_Escuelas(this, true);
         Eliminar_Escuelas.setVisible(true);
     }//GEN-LAST:event_MenuEscuelaEliminarActionPerformed
 
     private void MenuEscuelaVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuEscuelaVisualizarActionPerformed
+        this.setVisible(false);
         Visualizar_Escuelas Visualizar_Escuelas = new Visualizar_Escuelas(this, true);
         Visualizar_Escuelas.setVisible(true);
     }//GEN-LAST:event_MenuEscuelaVisualizarActionPerformed
 
     private void menuCrearVehiculoEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCrearVehiculoEmpActionPerformed
+        this.setVisible(false);
         Crear_VehiculoEmp Crear_VehiculoEmp = new Crear_VehiculoEmp(this, true);
         Crear_VehiculoEmp.setVisible(true);
     }//GEN-LAST:event_menuCrearVehiculoEmpActionPerformed
 
     private void MenuConductorCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuConductorCrearActionPerformed
+        this.setVisible(false);
         Crear_Conductor Crear_Conductor = new Crear_Conductor(this, true);
         Crear_Conductor.setVisible(true);     
     }//GEN-LAST:event_MenuConductorCrearActionPerformed
 
     private void MenuConductorEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuConductorEliminarActionPerformed
+        this.setVisible(false);
         Eliminar_Conductor Eliminar_Conductor = new Eliminar_Conductor(this, true);
         Eliminar_Conductor.setVisible(true);  
     }//GEN-LAST:event_MenuConductorEliminarActionPerformed
 
     private void MenuConductorModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuConductorModificarActionPerformed
+        this.setVisible(false);
         Modificar_Conductor Modificar_Conductor = new Modificar_Conductor(this, true);
         Modificar_Conductor.setVisible(true); 
     }//GEN-LAST:event_MenuConductorModificarActionPerformed
 
     private void MenuConductorVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuConductorVisualizarActionPerformed
+        this.setVisible(false);
         Visualizar_Conductor Visualizar_Conductor = new Visualizar_Conductor(this, true);
         Visualizar_Conductor.setVisible(true); 
+        
     }//GEN-LAST:event_MenuConductorVisualizarActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+ 
     /**
      * @param args the command line arguments
      */
@@ -420,16 +443,15 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem MenuVehiculoEmpresaModificar;
     private javax.swing.JMenuItem MenuVehiculoEmpresaVisualizar;
     private javax.swing.JPanel PanelPrincipal;
+    private javax.swing.JMenu btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;

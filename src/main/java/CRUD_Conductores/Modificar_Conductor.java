@@ -6,6 +6,7 @@ package CRUD_Conductores;
 
 import Controladores.ConductorController;
 import Modelos.Conductor;
+import com.mycompany.proyecto_lenguajes_bd.Menu;
 
 /**
  *
@@ -44,6 +45,8 @@ public class Modificar_Conductor extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         txtCedula = new javax.swing.JTextField();
         btnModificar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextArea();
 
@@ -83,6 +86,20 @@ public class Modificar_Conductor extends javax.swing.JDialog {
             }
         });
 
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
+        btnMenu.setText("Menu");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -111,6 +128,10 @@ public class Modificar_Conductor extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(194, 194, 194)
                 .addComponent(btnModificar)
+                .addGap(28, 28, 28)
+                .addComponent(btnLimpiar)
+                .addGap(46, 46, 46)
+                .addComponent(btnMenu)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -140,7 +161,10 @@ public class Modificar_Conductor extends javax.swing.JDialog {
                     .addComponent(txtApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(28, 28, 28)
-                .addComponent(btnModificar)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnModificar)
+                    .addComponent(btnLimpiar)
+                    .addComponent(btnMenu))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
 
@@ -202,12 +226,29 @@ public class Modificar_Conductor extends javax.swing.JDialog {
         actualizar_lista();
     }//GEN-LAST:event_btnModificarActionPerformed
 
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        this.setVisible(false);
+        new Menu().setVisible(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        limpiar_Interfaz();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
     private void actualizar_lista(){
         txtResultado.setText("");
         for(Conductor conductorAux:conductorController.obtenerTodosConductores()){
             txtResultado.append(conductorAux.toString());
         }
     }
+    private void limpiar_Interfaz(){
+    txtIDConductor.setText("");
+    txtNombre.setText("");
+    txtApellido1.setText("");
+    txtApellido2.setText("");
+    txtCedula.setText("");
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -252,6 +293,8 @@ public class Modificar_Conductor extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnModificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

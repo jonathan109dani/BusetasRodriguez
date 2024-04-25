@@ -6,6 +6,7 @@ package CRUD_Escuelas;
 
 import Controladores.EscuelaController;
 import Modelos.Escuela;
+import com.mycompany.proyecto_lenguajes_bd.Menu;
 
 /**
  *
@@ -44,6 +45,8 @@ public class Modificar_Escuelas extends javax.swing.JDialog {
         txtResultado = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         txtIdentificador = new javax.swing.JTextField();
+        btnLimpiar = new javax.swing.JButton();
+        Menu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -83,6 +86,20 @@ public class Modificar_Escuelas extends javax.swing.JDialog {
 
         jLabel1.setText("Identificador");
 
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
+        Menu.setText("Menu");
+        Menu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -96,21 +113,19 @@ public class Modificar_Escuelas extends javax.swing.JDialog {
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(txtIDEscuela)
-                        .addGap(27, 27, 27)
-                        .addComponent(btnBuscar))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtIdentificador, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUbicacion, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(btnModificarEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 58, Short.MAX_VALUE)))
-                        .addGap(99, 99, 99)))
-                .addGap(78, 78, 78))
+                    .addComponent(txtIDEscuela, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(btnModificarEscuela)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLimpiar))
+                    .addComponent(txtIdentificador)
+                    .addComponent(txtUbicacion)
+                    .addComponent(txtNombre))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBuscar)
+                    .addComponent(Menu))
+                .addGap(75, 75, 75))
             .addComponent(jScrollPane1)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(195, 195, 195)
@@ -140,7 +155,10 @@ public class Modificar_Escuelas extends javax.swing.JDialog {
                     .addComponent(jLabel4)
                     .addComponent(txtUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnModificarEscuela)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnModificarEscuela)
+                    .addComponent(btnLimpiar)
+                    .addComponent(Menu))
                 .addGap(11, 11, 11)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE))
         );
@@ -193,12 +211,28 @@ public class Modificar_Escuelas extends javax.swing.JDialog {
         actualizar_lista();
     }//GEN-LAST:event_btnModificarEscuelaActionPerformed
 
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        limpiar_Interfaz();       // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuActionPerformed
+        this.setVisible(false);
+        new Menu().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuActionPerformed
+
     private void actualizar_lista(){
         txtResultado.setText("");
         for(Escuela escuelaAux:escuelaController.obtenerTodasEscuelas()){
             txtResultado.append(escuelaAux.toString());
         }
     }
+    private void limpiar_Interfaz(){
+    txtIDEscuela.setText("");
+    txtNombre.setText("");
+    txtIdentificador.setText("");
+    txtUbicacion.setText("");
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -242,8 +276,10 @@ public class Modificar_Escuelas extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Menu;
     private javax.swing.JLabel ModificarEscuela;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificarEscuela;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -6,6 +6,7 @@ package CRUD_VehiculosEmpresa;
 
 import Controladores.VehiculoController;
 import Modelos.Vehiculo;
+import com.mycompany.proyecto_lenguajes_bd.Menu;
 
 /**
  *
@@ -37,6 +38,7 @@ public class Visualizar_VehiculoEmp extends javax.swing.JDialog {
         txtPlaca = new javax.swing.JTextField();
         btn_ConsultarPlaca = new javax.swing.JButton();
         txtResultado = new javax.swing.JTextField();
+        btnMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -59,6 +61,13 @@ public class Visualizar_VehiculoEmp extends javax.swing.JDialog {
             }
         });
 
+        btnMenu.setText("Menu");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -68,7 +77,10 @@ public class Visualizar_VehiculoEmp extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(172, 172, 172)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_ConsultarPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btn_ConsultarPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(58, 58, 58)
+                                .addComponent(btnMenu))
                             .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(225, 225, 225)
@@ -76,7 +88,7 @@ public class Visualizar_VehiculoEmp extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(186, 186, 186)
                         .addComponent(jLabel2)))
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
             .addComponent(txtResultado)
         );
         jPanel2Layout.setVerticalGroup(
@@ -89,7 +101,9 @@ public class Visualizar_VehiculoEmp extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btn_ConsultarPlaca)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_ConsultarPlaca)
+                    .addComponent(btnMenu))
                 .addGap(18, 18, 18)
                 .addComponent(txtResultado, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
         );
@@ -123,6 +137,11 @@ public class Visualizar_VehiculoEmp extends javax.swing.JDialog {
     private void txtPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPlacaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPlacaActionPerformed
+
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        this.setVisible(false);
+        new Menu().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,6 +186,7 @@ public class Visualizar_VehiculoEmp extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMenu;
     private javax.swing.JButton btn_ConsultarPlaca;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

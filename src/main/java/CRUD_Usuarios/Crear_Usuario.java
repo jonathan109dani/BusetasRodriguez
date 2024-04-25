@@ -6,6 +6,7 @@ package CRUD_Usuarios;
 
 import Controladores.ClienteController;
 import Modelos.Cliente;
+import com.mycompany.proyecto_lenguajes_bd.Menu;
 import javax.swing.JFrame;
 
 /**
@@ -20,6 +21,7 @@ public class Crear_Usuario extends javax.swing.JDialog {
     public Crear_Usuario(JFrame jFrame, boolean par) {
         initComponents();
         actualizar_lista();
+        this.setLocationRelativeTo(null);//Centrar
     }
 
     /**
@@ -39,17 +41,15 @@ public class Crear_Usuario extends javax.swing.JDialog {
         txtApellido1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         txtApellido2 = new javax.swing.JTextField();
         txtUbicacion = new javax.swing.JTextField();
-        txtCantidadClientes = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtCedula = new javax.swing.JTextField();
         btnCrearUsuario = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextArea();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        btnLimpiar = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -64,8 +64,6 @@ public class Crear_Usuario extends javax.swing.JDialog {
         jLabel4.setText("Segundo Apellido");
 
         jLabel5.setText("Ubicacion");
-
-        jLabel6.setText("Cantidad de Usuarios");
 
         jLabel7.setText("Cedula");
 
@@ -86,6 +84,20 @@ public class Crear_Usuario extends javax.swing.JDialog {
         txtResultado.setRows(5);
         jScrollPane2.setViewportView(txtResultado);
 
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
+        btnMenu.setText("Menu");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -93,29 +105,32 @@ public class Crear_Usuario extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
+                        .addGap(99, 99, 99)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel6)
                             .addComponent(jLabel5)
                             .addComponent(jLabel4)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNombre)
-                            .addComponent(txtApellido1)
-                            .addComponent(txtApellido2)
-                            .addComponent(txtUbicacion)
-                            .addComponent(txtCantidadClientes)
-                            .addComponent(txtCedula, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtNombre)
+                                .addComponent(txtApellido1)
+                                .addComponent(txtApellido2)
+                                .addComponent(txtUbicacion)
+                                .addComponent(txtCedula, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(35, 35, 35)
+                                .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(btnLimpiar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                                .addComponent(btnMenu))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(254, 254, 254)
                         .addComponent(jLabel1)))
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
             .addComponent(jScrollPane2)
         );
         jPanel1Layout.setVerticalGroup(
@@ -143,19 +158,14 @@ public class Crear_Usuario extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(52, 52, 52)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtCantidadClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnCrearUsuario)
+                    .addComponent(btnCrearUsuario)
+                    .addComponent(btnLimpiar)
+                    .addComponent(btnMenu))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
         );
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -163,9 +173,7 @@ public class Crear_Usuario extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -173,9 +181,7 @@ public class Crear_Usuario extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(157, Short.MAX_VALUE))
         );
 
         pack();
@@ -192,9 +198,9 @@ public class Crear_Usuario extends javax.swing.JDialog {
         String apellido1 = txtApellido1.getText();
         String apellido2 = txtApellido2.getText();
         String ubicacion = txtUbicacion.getText();
-        int cantidadClientes = Integer.parseInt(txtCantidadClientes.getText());
         
-        Cliente cliente = new Cliente ();
+        
+        Cliente cliente = new Cliente (cedula, nombre, apellido1, apellido2, ubicacion);
         
         this.clienteController.agregarCliente(cliente);
         
@@ -202,11 +208,27 @@ public class Crear_Usuario extends javax.swing.JDialog {
         
     }//GEN-LAST:event_btnCrearUsuarioActionPerformed
 
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        this.setVisible(false);
+        new Menu().setVisible(true);
+    }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        limpiar_Interfaz();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
     private void actualizar_lista (){
         txtResultado.setText("");
         for(Cliente clienteAux:clienteController.obtenerTodosClientes()){
             txtResultado.append(clienteAux.toString());
         }
+    }
+    private void limpiar_Interfaz(){
+    txtCedula.setText("");
+    txtNombre.setText("");
+    txtApellido1.setText("");
+    txtApellido2.setText("");
+    txtUbicacion.setText("");
     }
     /**
      * @param args the command line arguments
@@ -252,20 +274,18 @@ public class Crear_Usuario extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearUsuario;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtApellido1;
     private javax.swing.JTextField txtApellido2;
-    private javax.swing.JTextField txtCantidadClientes;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextArea txtResultado;

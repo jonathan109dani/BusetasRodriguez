@@ -6,6 +6,7 @@ package CRUD_Usuarios;
 
 import Controladores.ClienteController;
 import Modelos.Cliente;
+import com.mycompany.proyecto_lenguajes_bd.Menu;
 import javax.swing.JFrame;
 
 /**
@@ -38,6 +39,7 @@ public class Eliminar_Usuario extends javax.swing.JDialog {
         javax.swing.JButton btn_EliminarUsuario = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextArea();
+        btnMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -64,6 +66,13 @@ public class Eliminar_Usuario extends javax.swing.JDialog {
         txtResultado.setRows(5);
         jScrollPane1.setViewportView(txtResultado);
 
+        btnMenu.setText("Menu");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -84,7 +93,9 @@ public class Eliminar_Usuario extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_EliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(213, 213, 213))
+                .addGap(92, 92, 92)
+                .addComponent(btnMenu)
+                .addGap(46, 46, 46))
             .addComponent(jScrollPane1)
         );
         jPanel1Layout.setVerticalGroup(
@@ -97,7 +108,9 @@ public class Eliminar_Usuario extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(txtCedulaElim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(btn_EliminarUsuario)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_EliminarUsuario)
+                    .addComponent(btnMenu))
                 .addGap(39, 39, 39)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE))
         );
@@ -132,6 +145,11 @@ public class Eliminar_Usuario extends javax.swing.JDialog {
         
         actualizar_lista();
     }//GEN-LAST:event_btn_EliminarUsuarioActionPerformed
+
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        this.setVisible(false);
+        new Menu().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMenuActionPerformed
 
     private void actualizar_lista (){
         txtResultado.setText("");
@@ -183,6 +201,7 @@ public class Eliminar_Usuario extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

@@ -6,6 +6,7 @@ package CRUD_Conductores;
 
 import Controladores.ConductorController;
 import Modelos.Conductor;
+import com.mycompany.proyecto_lenguajes_bd.Menu;
 
 /**
  *
@@ -38,6 +39,7 @@ public class Visualizar_Conductor extends javax.swing.JDialog {
         txtcedula = new javax.swing.JTextField();
         btnVerConductor = new javax.swing.JButton();
         txtresultado = new javax.swing.JTextField();
+        btnMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -61,6 +63,13 @@ public class Visualizar_Conductor extends javax.swing.JDialog {
             }
         });
 
+        btnMenu.setText("Menu");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -72,7 +81,9 @@ public class Visualizar_Conductor extends javax.swing.JDialog {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnVerConductor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtcedula)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE))
+                        .addGap(28, 28, 28)
+                        .addComponent(btnMenu))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(216, 216, 216)
                         .addComponent(jLabel1))
@@ -89,7 +100,9 @@ public class Visualizar_Conductor extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnVerConductor)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVerConductor)
+                    .addComponent(btnMenu))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtresultado, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))
         );
@@ -125,6 +138,11 @@ public class Visualizar_Conductor extends javax.swing.JDialog {
     private void txtcedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcedulaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcedulaActionPerformed
+
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        this.setVisible(false);
+        new Menu().setVisible(true);          // TODO add your handling code here:
+    }//GEN-LAST:event_btnMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,6 +187,7 @@ public class Visualizar_Conductor extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnVerConductor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -6,6 +6,7 @@ package CRUD_VehiculosEmpresa;
 
 import Controladores.VehiculoController;
 import Modelos.Vehiculo;
+import com.mycompany.proyecto_lenguajes_bd.Menu;
 import javax.swing.JFrame;
 
 /**
@@ -44,6 +45,8 @@ public class Crear_VehiculoEmp extends javax.swing.JDialog {
         btnAgregarVehiculo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextArea();
+        btnMenu = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -59,7 +62,7 @@ public class Crear_VehiculoEmp extends javax.swing.JDialog {
 
         jLabel5.setText("Capacidad");
 
-        btnAgregarVehiculo.setText("Agregar Vehiculo");
+        btnAgregarVehiculo.setText("Agregar");
         btnAgregarVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarVehiculoActionPerformed(evt);
@@ -69,6 +72,20 @@ public class Crear_VehiculoEmp extends javax.swing.JDialog {
         txtResultado.setColumns(20);
         txtResultado.setRows(5);
         jScrollPane1.setViewportView(txtResultado);
+
+        btnMenu.setText("Menu");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -83,13 +100,18 @@ public class Crear_VehiculoEmp extends javax.swing.JDialog {
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnAgregarVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
                     .addComponent(jLabel1)
-                    .addComponent(txtPlaca)
+                    .addComponent(txtPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
                     .addComponent(txtModelo)
                     .addComponent(txtMarca)
-                    .addComponent(txtCapacidad))
-                .addContainerGap(134, Short.MAX_VALUE))
+                    .addComponent(txtCapacidad)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnAgregarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLimpiar)))
+                .addGap(18, 18, 18)
+                .addComponent(btnMenu)
+                .addContainerGap(41, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
         );
         jPanel1Layout.setVerticalGroup(
@@ -114,7 +136,10 @@ public class Crear_VehiculoEmp extends javax.swing.JDialog {
                     .addComponent(jLabel5)
                     .addComponent(txtCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addComponent(btnAgregarVehiculo)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregarVehiculo)
+                    .addComponent(btnMenu)
+                    .addComponent(btnLimpiar))
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
         );
@@ -154,11 +179,26 @@ public class Crear_VehiculoEmp extends javax.swing.JDialog {
         
     }//GEN-LAST:event_btnAgregarVehiculoActionPerformed
 
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        this.setVisible(false);
+        new Menu().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        limpiar_Interfaz();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
     private void actualizar_lista (){
         txtResultado.setText("");
         for (Vehiculo vehiculoAux:vehiculoController.obtenerTodosVehiculos()) {
             txtResultado.append(vehiculoAux.toString());
         }
+    }
+    private void limpiar_Interfaz(){
+    txtPlaca.setText("");
+    txtModelo.setText("");
+    txtMarca.setText("");
+    txtCapacidad.setText("");
     }
     /**
      * @param args the command line arguments
@@ -204,6 +244,8 @@ public class Crear_VehiculoEmp extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarVehiculo;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
